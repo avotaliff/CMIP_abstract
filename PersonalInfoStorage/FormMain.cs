@@ -33,13 +33,28 @@ namespace PersonalInfoStorage
         private void ButtonNext_Click(object sender, EventArgs e)
         {
             bool f = false;
-            foreach (TextBox textBox in _textBoxList)
+            int i = 0;
+            while (f == false && i < _textBoxList.Count) //Есть ли хотя бы один пустой
             {
-                if (textBox.Text == "")
+                if (_textBoxList[i].Text == "")
                 { 
                     f = true;
-                    textBox.BackColor = Color.MistyRose;
+                    _textBoxList[i].BackColor = Color.MistyRose;
+                    LabelError.Visible = true;
                 }
+                i++;
+            }
+            if (f == true)
+            {
+                for (; i < _textBoxList.Count; i++)
+                    if (_textBoxList[i].Text == "")
+                        _textBoxList[i].BackColor = Color.MistyRose;
+            }
+            else
+            {
+                LabelError.Visible = false;
+                foreach (TextBox tb in _textBoxList)
+                    tb.BackColor = SystemColors.Window;
             }
         }
     }
