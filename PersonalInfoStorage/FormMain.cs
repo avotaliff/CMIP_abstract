@@ -8,7 +8,7 @@ namespace PersonalInfoStorage
     public partial class FormMain : Form
     {
         DateTime _dt = DateTime.Now.AddYears(-18);
-        List<TextBox> _textBoxList = new List<TextBox>();
+        List<TextBox> _textBoxList = new List<TextBox>();    
 
         public FormMain()
         {
@@ -55,6 +55,10 @@ namespace PersonalInfoStorage
                 LabelError.Visible = false;
                 foreach (TextBox tb in _textBoxList)
                     tb.BackColor = SystemColors.Window;
+                this.Hide();
+                FormPassword fp = new FormPassword();
+                fp._fm = this;
+                fp.Show();                
             }
         }
     }
