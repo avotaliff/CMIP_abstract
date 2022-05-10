@@ -2,7 +2,8 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Drawing;
-using System.Collections.Generic;
+using System.Security.Cryptography;
+
 
 namespace PersonalInfoStorage
 {
@@ -157,8 +158,12 @@ namespace PersonalInfoStorage
         {
             if (CorrectPass())
             { 
-                
-            
+               RSA rSA = RSA.Create(); 
+               RSAParameters rsaKeyInfo = rSA.ExportParameters(true);
+                byte[] pKey = new byte[1024];
+                pKey = RSACng.ExportRSAPrivateKey();
+
+
             }    
         }
 
