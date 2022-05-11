@@ -87,7 +87,7 @@
             this.помощьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(409, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(409, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,13 +96,13 @@
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -111,13 +111,13 @@
             this.помощьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.оПрограммеToolStripMenuItem});
             this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
-            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.помощьToolStripMenuItem.Text = "Помощь";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
@@ -144,13 +144,13 @@
             // TrackBar
             // 
             this.TrackBar.Location = new System.Drawing.Point(16, 118);
-            this.TrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TrackBar.Margin = new System.Windows.Forms.Padding(4);
             this.TrackBar.Maximum = 30;
             this.TrackBar.Minimum = 8;
             this.TrackBar.Name = "TrackBar";
-            this.TrackBar.Size = new System.Drawing.Size(365, 56);
+            this.TrackBar.Size = new System.Drawing.Size(365, 45);
             this.TrackBar.TabIndex = 6;
-            this.TrackBar.Value = 30;
+            this.TrackBar.Value = 8;
             this.TrackBar.Scroll += new System.EventHandler(this.TrackBar_Scroll);
             // 
             // label2
@@ -166,7 +166,7 @@
             // ButtonGeneric
             // 
             this.ButtonGeneric.Location = new System.Drawing.Point(209, 433);
-            this.ButtonGeneric.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonGeneric.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonGeneric.Name = "ButtonGeneric";
             this.ButtonGeneric.Size = new System.Drawing.Size(100, 28);
             this.ButtonGeneric.TabIndex = 11;
@@ -177,7 +177,7 @@
             // ButtonPrev
             // 
             this.ButtonPrev.Location = new System.Drawing.Point(83, 433);
-            this.ButtonPrev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonPrev.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonPrev.Name = "ButtonPrev";
             this.ButtonPrev.Size = new System.Drawing.Size(100, 28);
             this.ButtonPrev.TabIndex = 12;
@@ -208,21 +208,23 @@
             // TextBoxPass
             // 
             this.TextBoxPass.Location = new System.Drawing.Point(180, 346);
-            this.TextBoxPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxPass.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxPass.MaxLength = 30;
             this.TextBoxPass.Name = "TextBoxPass";
             this.TextBoxPass.Size = new System.Drawing.Size(195, 22);
             this.TextBoxPass.TabIndex = 15;
+            this.TextBoxPass.Text = "123456789";
             this.TextBoxPass.UseSystemPasswordChar = true;
             // 
             // TextBoxPassPruf
             // 
             this.TextBoxPassPruf.Location = new System.Drawing.Point(180, 389);
-            this.TextBoxPassPruf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxPassPruf.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxPassPruf.MaxLength = 30;
             this.TextBoxPassPruf.Name = "TextBoxPassPruf";
             this.TextBoxPassPruf.Size = new System.Drawing.Size(195, 22);
             this.TextBoxPassPruf.TabIndex = 16;
+            this.TextBoxPassPruf.Text = "123456789";
             this.TextBoxPassPruf.UseSystemPasswordChar = true;
             // 
             // LabelLow
@@ -261,12 +263,12 @@
             // TrackBarHor
             // 
             this.TrackBarHor.Location = new System.Drawing.Point(19, 204);
-            this.TrackBarHor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TrackBarHor.Margin = new System.Windows.Forms.Padding(4);
             this.TrackBarHor.Maximum = 3;
             this.TrackBarHor.Minimum = 1;
             this.TrackBarHor.Name = "TrackBarHor";
             this.TrackBarHor.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.TrackBarHor.Size = new System.Drawing.Size(56, 98);
+            this.TrackBarHor.Size = new System.Drawing.Size(45, 98);
             this.TrackBarHor.TabIndex = 20;
             this.TrackBarHor.Value = 1;
             this.TrackBarHor.Scroll += new System.EventHandler(this.TrackBarHor_Scroll);
@@ -355,7 +357,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пароль";

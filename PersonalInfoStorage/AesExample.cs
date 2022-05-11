@@ -6,33 +6,22 @@ namespace PersonalInfoStorage
 {
     public class AesExample
     {
-        private byte[] _dataToEncryp;
-        private string _encrypDataPath = "";
+        private string _encrypDataPath = ""; //закрытый ключ + личная инфа
+        private byte[] _key; //пароль + соль + хеширование
+        private byte[] _IV = new byte[16];
+        KeyManager km;
 
-        private byte[] _key;
-        private byte[] _IV;
-
-        private string _salt;
-
-        public AesExample(string text, string password, string userName)
+        public AesExample(string password, string userName)
         {
-            _dataToEncryp = Encoding.UTF8.GetBytes(text);
             _encrypDataPath += userName + ".txt";
-
-            //Криптостойкое случайное число
-            byte[] data = new byte[3];
-            var csp = new RNGCryptoServiceProvider();
-            csp.GetBytes(data);
-            _salt = Encoding.UTF8.GetString(data);
-
-            MD5 md5 = MD5.Create();
-            _key = md5.ComputeHash(Encoding.UTF8.GetBytes(password + _salt));
-            _IV = new byte[_key.Length];
+            km = new KeyManager(userName + ".txt");
+            _key = km.GetKey(password);
         }
 
-        public void CreateEncrypFile()
+        public string CreateDecrypText()
         {
-            //Шифрование данных с использованием ключа, генерируемого на основе парольной фразы 
+            string decrypText = "";
+            //Расшифрование данных с использованием ключа, генерируемого на основе парольной фразы 
             using (var myAes = new AesCryptoServiceProvider())
             {
                 //Режим шифрования
@@ -40,9 +29,42 @@ namespace PersonalInfoStorage
                 myAes.BlockSize = 128;
                 myAes.Padding = PaddingMode.PKCS7;
 
-                //Формирование ключа               
-                myAes.Key = _key;
+                //Формирование ключа              
                 myAes.IV = _IV;
+                myAes.Key = _key;
+
+                //Расшифровка данных          
+                ICryptoTransform decryptor = myAes.CreateDecryptor(myAes.Key, myAes.IV);
+
+                using (FileStream EncrypFile = File.OpenRead(_encrypDataPath))
+                {
+                    using (CryptoStream csDecryp = new CryptoStream(EncrypFile, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srDecryp = new StreamReader(csDecryp))
+                        {
+                            decrypText = srDecryp.ReadToEnd();
+                        }
+                    }
+                }
+            }
+            return decrypText;
+        }
+
+        public void CreateEncrypFile(string text)
+        {
+            byte[] dataToEncryp = Encoding.UTF8.GetBytes(text);
+
+            //Шифрование данных с использованием ключа, генерируемого на основе парольной фразы 
+            using (var myAes = new AesCryptoServiceProvider())
+            {
+                //Режим шифрования
+                myAes.Mode = CipherMode.CBC;
+                myAes.BlockSize = 128;
+                myAes.Padding = PaddingMode.PKCS7; 
+
+                //Формирование ключа              
+                myAes.IV = _IV;
+                myAes.Key = _key;
 
                 //Шифрование данных          
                 ICryptoTransform encryptor = myAes.CreateEncryptor(myAes.Key, myAes.IV);
@@ -51,7 +73,7 @@ namespace PersonalInfoStorage
                 {
                     using (CryptoStream csEncryp = new CryptoStream(EncrypFile, encryptor, CryptoStreamMode.Write))
                     {
-                        csEncryp.Write(_dataToEncryp, 0, _dataToEncryp.Length);
+                        csEncryp.Write(dataToEncryp, 0, dataToEncryp.Length);
                     }
                 }
             }

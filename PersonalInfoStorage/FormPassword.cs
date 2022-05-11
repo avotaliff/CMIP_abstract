@@ -9,7 +9,7 @@ namespace PersonalInfoStorage
 {
     public partial class FormPassword : Form
     {
-        public FormMain _fm;
+        public FormLogin _fl;
         public string _userInfo;
         public string _userLogin;
         PasswordAnalysis pa = new PasswordAnalysis();
@@ -19,25 +19,25 @@ namespace PersonalInfoStorage
             InitializeComponent();
         }
 
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ButtonPrev_Click(object sender, EventArgs e)
         {
-            AboutBox aboutBox = new AboutBox();
-            aboutBox.ShowDialog();
+            Close();
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-        private void FormPassword_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
+            Close();
         }
 
-        private void ButtonPrev_Click(object sender, EventArgs e)
+        private void FormPassword_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            _fm.Show();
+            _fl.Show();
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
         }
 
         private void ChangeLabelsEnabled(bool len, bool upp, bool low, bool num, bool sym)
@@ -56,9 +56,9 @@ namespace PersonalInfoStorage
                               + rSA.ToXmlString(true) + "\n"
                               + "----END----";
                 string textToEncrypt = _userInfo + xmlKey;
-                AesExample aesE = new AesExample(textToEncrypt, TextBoxPass.Text, _userLogin);
-                aesE.CreateEncrypFile();
-                _fm._usersList.Add(_userLogin);
+                AesExample aesE = new AesExample(TextBoxPass.Text, _userLogin);
+                aesE.CreateEncrypFile(textToEncrypt);
+                _fl._usersList.Add(_userLogin);
                 MessageBox.Show(
                      "Закрытый ключ и персональные данные его владельца зашифрованы!",
                      "Сообщение",
