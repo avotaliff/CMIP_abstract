@@ -62,29 +62,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 80);
+            this.label1.Location = new System.Drawing.Point(16, 98);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.Size = new System.Drawing.Size(143, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Минимальная длина:";
             // 
             // LabelBar
             // 
             this.LabelBar.AutoSize = true;
-            this.LabelBar.Location = new System.Drawing.Point(164, 80);
+            this.LabelBar.Location = new System.Drawing.Point(219, 98);
+            this.LabelBar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelBar.Name = "LabelBar";
-            this.LabelBar.Size = new System.Drawing.Size(122, 13);
+            this.LabelBar.Size = new System.Drawing.Size(151, 16);
             this.LabelBar.TabIndex = 1;
             this.LabelBar.Text = "Текущее значение: 30";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.помощьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(307, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(409, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,13 +96,13 @@
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -108,41 +111,44 @@
             this.помощьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.оПрограммеToolStripMenuItem});
             this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
-            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.помощьToolStripMenuItem.Text = "Помощь";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 35);
+            this.label3.Location = new System.Drawing.Point(97, 43);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 13);
+            this.label3.Size = new System.Drawing.Size(226, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Придумайте пароль с заданными";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(104, 52);
+            this.label4.Location = new System.Drawing.Point(139, 64);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 13);
+            this.label4.Size = new System.Drawing.Size(148, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "длиной и сложностью";
             // 
             // TrackBar
             // 
-            this.TrackBar.Location = new System.Drawing.Point(12, 96);
+            this.TrackBar.Location = new System.Drawing.Point(16, 118);
+            this.TrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TrackBar.Maximum = 30;
             this.TrackBar.Minimum = 8;
             this.TrackBar.Name = "TrackBar";
-            this.TrackBar.Size = new System.Drawing.Size(274, 45);
+            this.TrackBar.Size = new System.Drawing.Size(365, 56);
             this.TrackBar.TabIndex = 6;
             this.TrackBar.Value = 30;
             this.TrackBar.Scroll += new System.EventHandler(this.TrackBar_Scroll);
@@ -150,17 +156,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 142);
+            this.label2.Location = new System.Drawing.Point(16, 175);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.Size = new System.Drawing.Size(81, 16);
             this.label2.TabIndex = 7;
             this.label2.Text = "Сложность:";
             // 
             // ButtonGeneric
             // 
-            this.ButtonGeneric.Location = new System.Drawing.Point(157, 352);
+            this.ButtonGeneric.Location = new System.Drawing.Point(209, 433);
+            this.ButtonGeneric.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonGeneric.Name = "ButtonGeneric";
-            this.ButtonGeneric.Size = new System.Drawing.Size(75, 23);
+            this.ButtonGeneric.Size = new System.Drawing.Size(100, 28);
             this.ButtonGeneric.TabIndex = 11;
             this.ButtonGeneric.Text = "Сохранить";
             this.ButtonGeneric.UseVisualStyleBackColor = true;
@@ -168,9 +176,10 @@
             // 
             // ButtonPrev
             // 
-            this.ButtonPrev.Location = new System.Drawing.Point(62, 352);
+            this.ButtonPrev.Location = new System.Drawing.Point(83, 433);
+            this.ButtonPrev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonPrev.Name = "ButtonPrev";
-            this.ButtonPrev.Size = new System.Drawing.Size(75, 23);
+            this.ButtonPrev.Size = new System.Drawing.Size(100, 28);
             this.ButtonPrev.TabIndex = 12;
             this.ButtonPrev.Text = "Вернуться";
             this.ButtonPrev.UseVisualStyleBackColor = true;
@@ -179,36 +188,40 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 284);
+            this.label5.Location = new System.Drawing.Point(25, 350);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(59, 16);
             this.label5.TabIndex = 13;
             this.label5.Text = "Пароль:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 320);
+            this.label6.Location = new System.Drawing.Point(24, 394);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 13);
+            this.label6.Size = new System.Drawing.Size(132, 16);
             this.label6.TabIndex = 14;
             this.label6.Text = "Повторите пароль:";
             // 
             // TextBoxPass
             // 
-            this.TextBoxPass.Location = new System.Drawing.Point(135, 281);
+            this.TextBoxPass.Location = new System.Drawing.Point(180, 346);
+            this.TextBoxPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxPass.MaxLength = 30;
             this.TextBoxPass.Name = "TextBoxPass";
-            this.TextBoxPass.Size = new System.Drawing.Size(147, 22);
+            this.TextBoxPass.Size = new System.Drawing.Size(195, 22);
             this.TextBoxPass.TabIndex = 15;
             this.TextBoxPass.UseSystemPasswordChar = true;
             // 
             // TextBoxPassPruf
             // 
-            this.TextBoxPassPruf.Location = new System.Drawing.Point(135, 316);
+            this.TextBoxPassPruf.Location = new System.Drawing.Point(180, 389);
+            this.TextBoxPassPruf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TextBoxPassPruf.MaxLength = 30;
             this.TextBoxPassPruf.Name = "TextBoxPassPruf";
-            this.TextBoxPassPruf.Size = new System.Drawing.Size(147, 22);
+            this.TextBoxPassPruf.Size = new System.Drawing.Size(195, 22);
             this.TextBoxPassPruf.TabIndex = 16;
             this.TextBoxPassPruf.UseSystemPasswordChar = true;
             // 
@@ -216,9 +229,10 @@
             // 
             this.LabelLow.AutoSize = true;
             this.LabelLow.ForeColor = System.Drawing.Color.Red;
-            this.LabelLow.Location = new System.Drawing.Point(57, 228);
+            this.LabelLow.Location = new System.Drawing.Point(76, 281);
+            this.LabelLow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelLow.Name = "LabelLow";
-            this.LabelLow.Size = new System.Drawing.Size(45, 13);
+            this.LabelLow.Size = new System.Drawing.Size(55, 16);
             this.LabelLow.TabIndex = 17;
             this.LabelLow.Text = "Низкая";
             // 
@@ -226,9 +240,10 @@
             // 
             this.LabelMedium.AutoSize = true;
             this.LabelMedium.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.LabelMedium.Location = new System.Drawing.Point(57, 200);
+            this.LabelMedium.Location = new System.Drawing.Point(76, 246);
+            this.LabelMedium.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelMedium.Name = "LabelMedium";
-            this.LabelMedium.Size = new System.Drawing.Size(52, 13);
+            this.LabelMedium.Size = new System.Drawing.Size(62, 16);
             this.LabelMedium.TabIndex = 18;
             this.LabelMedium.Text = "Средняя";
             // 
@@ -236,22 +251,24 @@
             // 
             this.LabelHigh.AutoSize = true;
             this.LabelHigh.ForeColor = System.Drawing.Color.Green;
-            this.LabelHigh.Location = new System.Drawing.Point(57, 175);
+            this.LabelHigh.Location = new System.Drawing.Point(76, 215);
+            this.LabelHigh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelHigh.Name = "LabelHigh";
-            this.LabelHigh.Size = new System.Drawing.Size(52, 13);
+            this.LabelHigh.Size = new System.Drawing.Size(62, 16);
             this.LabelHigh.TabIndex = 19;
             this.LabelHigh.Text = "Высокая";
             // 
             // TrackBarHor
             // 
-            this.TrackBarHor.Location = new System.Drawing.Point(14, 166);
+            this.TrackBarHor.Location = new System.Drawing.Point(19, 204);
+            this.TrackBarHor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TrackBarHor.Maximum = 3;
             this.TrackBarHor.Minimum = 1;
             this.TrackBarHor.Name = "TrackBarHor";
             this.TrackBarHor.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.TrackBarHor.Size = new System.Drawing.Size(45, 80);
+            this.TrackBarHor.Size = new System.Drawing.Size(56, 98);
             this.TrackBarHor.TabIndex = 20;
-            this.TrackBarHor.Value = 1;
+            this.TrackBarHor.Value = 3;
             this.TrackBarHor.Scroll += new System.EventHandler(this.TrackBarHor_Scroll);
             // 
             // LabelLen
@@ -259,9 +276,10 @@
             this.LabelLen.AutoSize = true;
             this.LabelLen.BackColor = System.Drawing.SystemColors.Control;
             this.LabelLen.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LabelLen.Location = new System.Drawing.Point(129, 165);
+            this.LabelLen.Location = new System.Drawing.Point(172, 203);
+            this.LabelLen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelLen.Name = "LabelLen";
-            this.LabelLen.Size = new System.Drawing.Size(133, 13);
+            this.LabelLen.Size = new System.Drawing.Size(156, 16);
             this.LabelLen.TabIndex = 21;
             this.LabelLen.Text = "✓ Не менее 8 символов";
             // 
@@ -269,9 +287,10 @@
             // 
             this.LabelUpper.AutoSize = true;
             this.LabelUpper.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.LabelUpper.Location = new System.Drawing.Point(129, 187);
+            this.LabelUpper.Location = new System.Drawing.Point(172, 230);
+            this.LabelUpper.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelUpper.Name = "LabelUpper";
-            this.LabelUpper.Size = new System.Drawing.Size(135, 13);
+            this.LabelUpper.Size = new System.Drawing.Size(163, 16);
             this.LabelUpper.TabIndex = 22;
             this.LabelUpper.Text = "✓ Содержать заглавные";
             // 
@@ -279,9 +298,10 @@
             // 
             this.LabelNumber.AutoSize = true;
             this.LabelNumber.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LabelNumber.Location = new System.Drawing.Point(129, 231);
+            this.LabelNumber.Location = new System.Drawing.Point(172, 284);
+            this.LabelNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelNumber.Name = "LabelNumber";
-            this.LabelNumber.Size = new System.Drawing.Size(118, 13);
+            this.LabelNumber.Size = new System.Drawing.Size(136, 16);
             this.LabelNumber.TabIndex = 24;
             this.LabelNumber.Text = "✓ Содержать цифры";
             // 
@@ -289,9 +309,10 @@
             // 
             this.LabelLower.AutoSize = true;
             this.LabelLower.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.LabelLower.Location = new System.Drawing.Point(129, 209);
+            this.LabelLower.Location = new System.Drawing.Point(172, 257);
+            this.LabelLower.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelLower.Name = "LabelLower";
-            this.LabelLower.Size = new System.Drawing.Size(132, 13);
+            this.LabelLower.Size = new System.Drawing.Size(155, 16);
             this.LabelLower.TabIndex = 23;
             this.LabelLower.Text = "✓ Содержать строчные";
             // 
@@ -299,17 +320,18 @@
             // 
             this.LabelSpecSym.AutoSize = true;
             this.LabelSpecSym.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.LabelSpecSym.Location = new System.Drawing.Point(129, 253);
+            this.LabelSpecSym.Location = new System.Drawing.Point(172, 311);
+            this.LabelSpecSym.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelSpecSym.Name = "LabelSpecSym";
-            this.LabelSpecSym.Size = new System.Drawing.Size(156, 13);
+            this.LabelSpecSym.Size = new System.Drawing.Size(183, 16);
             this.LabelSpecSym.TabIndex = 25;
             this.LabelSpecSym.Text = "✓ Содержать спец символы";
             // 
             // FormPassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 387);
+            this.ClientSize = new System.Drawing.Size(409, 476);
             this.Controls.Add(this.LabelSpecSym);
             this.Controls.Add(this.LabelNumber);
             this.Controls.Add(this.LabelLower);
@@ -333,6 +355,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пароль";

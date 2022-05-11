@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Security.Cryptography;
 
@@ -10,6 +9,8 @@ namespace PersonalInfoStorage
     public partial class FormPassword : Form
     {
         public FormMain _fm;
+        public string _userInfo;
+        PasswordAnalysis pa = new PasswordAnalysis();
 
         public FormPassword()
         {
@@ -38,75 +39,11 @@ namespace PersonalInfoStorage
             Application.Exit();
         }
 
-        private bool ThereIsUpperCase()
-        {
-            int i = 0;
-            bool f = false;
-            while (f == false && i < TextBoxPass.Text.Length)
-            {
-                if (Char.IsUpper(TextBoxPass.Text[i]))
-                    f = true;
-                i++;
-            }
-            return f;
-        }
-        private bool ThereIsLowerCase()
-        {
-            int i = 0;
-            bool f = false;
-            while (f == false && i < TextBoxPass.Text.Length)
-            {
-                if (Char.IsLower(TextBoxPass.Text[i]))
-                    f = true;
-                i++;
-            }
-            return f;
-        }
-
-        private bool ThereIsNumber()
-        {
-            int i = 0;
-            bool f = false;
-            while (f == false && i < TextBoxPass.Text.Length)
-            {
-                if (Char.IsNumber(TextBoxPass.Text[i]))
-                    f = true;
-                i++;
-            }
-            return f;
-        }
-
-        private bool ThereIsSpecSymb()
-        {
-            const string Pattern = @"[`~!@#№""$;%^&*():?_\-+=\.,><}\]{[/|]+";
-            Regex r = new Regex(pattern: Pattern, RegexOptions.Compiled);
-            Match match = r.Match(TextBoxPass.Text);  
-            return match.Success;
-        }
-
         private void ChangeLabelsEnabled(bool len, bool upp, bool low, bool num, bool sym)
         {
             LabelUpper.ForeColor = upp ? SystemColors.ControlText : SystemColors.ControlDark;
             LabelLower.ForeColor = low ? SystemColors.ControlText : SystemColors.ControlDark;           
             LabelSpecSym.ForeColor = sym ? SystemColors.ControlText : SystemColors.ControlDark;
-        }
-
-        private bool CheckPassword()
-        {
-            if (TrackBarHor.Value == 1 && TextBoxPass.Text.Length >= 8 
-                && ThereIsNumber()) 
-                return true;
-
-            if (TrackBarHor.Value == 2 && TextBoxPass.Text.Length >= 8
-                && ThereIsNumber() && ThereIsUpperCase() && ThereIsLowerCase())
-                return true;
-
-            if (TrackBarHor.Value == 3 && TextBoxPass.Text.Length >= 8
-                && ThereIsNumber() && ThereIsUpperCase() && ThereIsLowerCase()
-                && ThereIsSpecSymb())
-                return true;
-
-            return false;
         }
 
         private bool CorrectPass()
@@ -131,7 +68,7 @@ namespace PersonalInfoStorage
                     );
                 return false;
             }
-            if (CheckPassword() == false)
+            if (pa.CheckPassword(TrackBarHor.Value, TextBoxPass.Text) == false)
             {
                 MessageBox.Show(
                      "Пароль не соответствует выбранным минимальным настройкам сложности!",
@@ -157,13 +94,19 @@ namespace PersonalInfoStorage
         private void ButtonGeneric_Click(object sender, EventArgs e)
         {
             if (CorrectPass())
-            { 
-               RSA rSA = RSA.Create(); 
-               RSAParameters rsaKeyInfo = rSA.ExportParameters(true);
-                byte[] pKey = new byte[1024];
-                pKey = RSACng.ExportRSAPrivateKey();
-
-
+            {
+                RSACryptoServiceProvider rSA = new RSACryptoServiceProvider();
+                string xmlKey = "----BEGIN----" + "\n"
+                                  + rSA.ToXmlString(true) + "\n"
+                                  + "----END----";
+                string textToEncrypt = _userInfo + xmlKey;
+                AesExample aesE = new AesExample(textToEncrypt, TextBoxPass.Text);
+                aesE.CreateEncrypFile();
+                MessageBox.Show(
+                     "Закрытый ключ и персональные данные его владельца зашифрованы!",
+                     "Сообщение",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information);
             }    
         }
 

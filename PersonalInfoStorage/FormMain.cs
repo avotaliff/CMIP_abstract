@@ -30,6 +30,14 @@ namespace PersonalInfoStorage
             aboutBox.ShowDialog();
         }
 
+        private string GetUserInfo()
+        {
+            return "Имя: " + TextBoxName.Text + "\n"
+                + "Фамилия: " + TextBoxSurname.Text + "\n"
+                + "Дата рождения: " + DateTimePicker.Text + "\n"
+                + "Логин: " + TextBoxLogin.Text + "\n";
+        }
+
         private void ButtonNext_Click(object sender, EventArgs e)
         {
             bool f = false;
@@ -57,6 +65,7 @@ namespace PersonalInfoStorage
                     tb.BackColor = SystemColors.Window;
                 this.Hide();
                 FormPassword fp = new FormPassword();
+                fp._userInfo = GetUserInfo();
                 fp._fm = this;
                 fp.Show();                
             }
