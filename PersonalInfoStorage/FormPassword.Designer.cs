@@ -268,7 +268,7 @@
             this.TrackBarHor.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.TrackBarHor.Size = new System.Drawing.Size(56, 98);
             this.TrackBarHor.TabIndex = 20;
-            this.TrackBarHor.Value = 3;
+            this.TrackBarHor.Value = 1;
             this.TrackBarHor.Scroll += new System.EventHandler(this.TrackBarHor_Scroll);
             // 
             // LabelLen
