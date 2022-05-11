@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace PersonalInfoStorage
 {
@@ -51,7 +52,7 @@ namespace PersonalInfoStorage
             return match.Success;
         }
 
-        public bool CheckPassword(int value, string pass)
+        private bool CheckPassword(int value, string pass)
         {
             if (value == 1 && pass.Length >= 8
                 && ThereIsNumber(pass))
@@ -66,6 +67,51 @@ namespace PersonalInfoStorage
                 && ThereIsSpecSymb(pass))
                 return true;
             return false;
+        }
+
+        public bool CorrectPass(string pass, string passPruf, int len, int hardLvl)
+        {
+            if (pass == "" || passPruf == "")
+            {
+                MessageBox.Show(
+                    "Поля паролей не должны быть пусты!",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return false;
+            }
+            if (pass != passPruf)
+            {
+                MessageBox.Show(
+                    "Пароли не совпадают!",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return false;
+            }
+            if (CheckPassword(hardLvl, pass) == false)
+            {
+                MessageBox.Show(
+                     "Пароль не соответствует выбранным минимальным настройкам сложности!",
+                     "Ошибка",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error
+                     );
+                return false;
+            }
+            if (pass.Length < len)
+            {
+                MessageBox.Show(
+                     "Длина пароля меньше минимально допустимой!",
+                     "Ошибка",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error
+                     );
+                return false;
+            }
+            return true;
         }
     }
 }

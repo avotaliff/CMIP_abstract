@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Security.Cryptography;
@@ -10,6 +11,7 @@ namespace PersonalInfoStorage
     {
         public FormMain _fm;
         public string _userInfo;
+        public string _userLogin;
         PasswordAnalysis pa = new PasswordAnalysis();
 
         public FormPassword()
@@ -27,16 +29,15 @@ namespace PersonalInfoStorage
         {
             Application.Exit();
         }
+        private void FormPassword_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void ButtonPrev_Click(object sender, EventArgs e)
         {
             this.Hide();
             _fm.Show();
-        }
-
-        private void FormPassword_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
 
         private void ChangeLabelsEnabled(bool len, bool upp, bool low, bool num, bool sym)
@@ -46,62 +47,18 @@ namespace PersonalInfoStorage
             LabelSpecSym.ForeColor = sym ? SystemColors.ControlText : SystemColors.ControlDark;
         }
 
-        private bool CorrectPass()
-        {
-            if (TextBoxPass.Text == "" || TextBoxPassPruf.Text == "")
-            {
-                MessageBox.Show(
-                    "Поля паролей не должны быть пусты!",
-                    "Ошибка",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                    );
-                return false;
-            }
-            if (TextBoxPass.Text != TextBoxPassPruf.Text)
-            {
-                MessageBox.Show(
-                    "Пароли не совпадают!",
-                    "Ошибка",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                    );
-                return false;
-            }
-            if (pa.CheckPassword(TrackBarHor.Value, TextBoxPass.Text) == false)
-            {
-                MessageBox.Show(
-                     "Пароль не соответствует выбранным минимальным настройкам сложности!",
-                     "Ошибка",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Error
-                     );
-                return false;
-            }
-            if (TextBoxPass.Text.Length < TrackBar.Value)
-            {
-                MessageBox.Show(
-                     "Длина пароля меньше минимально допустимой!",
-                     "Ошибка",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Error
-                     );
-                return false;
-            }
-            return true;
-        }
-
         private void ButtonGeneric_Click(object sender, EventArgs e)
         {
-            if (CorrectPass())
+            if (pa.CorrectPass(TextBoxPass.Text, TextBoxPassPruf.Text, TrackBar.Value, TrackBarHor.Value))
             {
                 RSACryptoServiceProvider rSA = new RSACryptoServiceProvider();
                 string xmlKey = "----BEGIN----" + "\n"
-                                  + rSA.ToXmlString(true) + "\n"
-                                  + "----END----";
+                              + rSA.ToXmlString(true) + "\n"
+                              + "----END----";
                 string textToEncrypt = _userInfo + xmlKey;
-                AesExample aesE = new AesExample(textToEncrypt, TextBoxPass.Text);
+                AesExample aesE = new AesExample(textToEncrypt, TextBoxPass.Text, _userLogin);
                 aesE.CreateEncrypFile();
+                _fm._usersList.Add(_userLogin);
                 MessageBox.Show(
                      "Закрытый ключ и персональные данные его владельца зашифрованы!",
                      "Сообщение",

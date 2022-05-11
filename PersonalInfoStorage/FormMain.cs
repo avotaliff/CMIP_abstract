@@ -1,14 +1,18 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Linq;
 
 namespace PersonalInfoStorage
 {
     public partial class FormMain : Form
     {
         DateTime _dt = DateTime.Now.AddYears(-18);
-        List<TextBox> _textBoxList = new List<TextBox>();    
+        List<TextBox> _textBoxList = new List<TextBox>();
+        public List<string> _usersList = new List<string>();
 
         public FormMain()
         {
@@ -17,6 +21,7 @@ namespace PersonalInfoStorage
             _textBoxList.Add(TextBoxName);
             _textBoxList.Add(TextBoxSurname);
             _textBoxList.Add(TextBoxLogin);
+            CreateUserList();
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -29,6 +34,13 @@ namespace PersonalInfoStorage
             AboutBox aboutBox = new AboutBox(); 
             aboutBox.ShowDialog();
         }
+
+        private void CreateUserList()
+        {
+            string myPath = Directory.GetCurrentDirectory();
+            Array.ForEach(Directory.GetFiles(myPath, "*.txt"), f => _usersList.Add(Path.GetFileNameWithoutExtension(Path.GetFileName(f))));           
+        }
+
 
         private string GetUserInfo()
         {
@@ -60,14 +72,27 @@ namespace PersonalInfoStorage
             }
             else
             {
-                LabelError.Visible = false;
-                foreach (TextBox tb in _textBoxList)
-                    tb.BackColor = SystemColors.Window;
-                this.Hide();
-                FormPassword fp = new FormPassword();
-                fp._userInfo = GetUserInfo();
-                fp._fm = this;
-                fp.Show();                
+                if (_usersList.Contains(TextBoxLogin.Text))
+                {
+                    MessageBox.Show(
+                    "Пользователь с данным логином уже существует!",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                }
+                else
+                {
+                    LabelError.Visible = false;
+                    foreach (TextBox tb in _textBoxList)
+                        tb.BackColor = SystemColors.Window;
+                    this.Hide();
+                    FormPassword fp = new FormPassword();
+                    fp._userLogin = TextBoxLogin.Text;
+                    fp._userInfo = GetUserInfo();
+                    fp._fm = this;
+                    fp.Show();
+                }
             }
         }
     }

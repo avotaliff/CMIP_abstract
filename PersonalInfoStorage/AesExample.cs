@@ -7,16 +7,17 @@ namespace PersonalInfoStorage
     public class AesExample
     {
         private byte[] _dataToEncryp;
-        private string _encrypDataPath = @"EncrypInfo.txt";
+        private string _encrypDataPath = "";
 
         private byte[] _key;
         private byte[] _IV;
 
         private string _salt;
 
-        public AesExample(string text, string password)
+        public AesExample(string text, string password, string userName)
         {
             _dataToEncryp = Encoding.UTF8.GetBytes(text);
+            _encrypDataPath += userName + ".txt";
 
             //Криптостойкое случайное число
             byte[] data = new byte[3];
