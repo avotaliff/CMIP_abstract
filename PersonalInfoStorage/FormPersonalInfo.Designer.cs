@@ -69,7 +69,7 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -84,7 +84,7 @@
             // оПрограммеToolStripMenuItem1
             // 
             this.оПрограммеToolStripMenuItem1.Name = "оПрограммеToolStripMenuItem1";
-            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem1.Text = "О программе";
             this.оПрограммеToolStripMenuItem1.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem1_Click);
             // 
@@ -101,6 +101,7 @@
             // 
             // DateTimePicker
             // 
+            this.DateTimePicker.Enabled = false;
             this.DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePicker.Location = new System.Drawing.Point(170, 119);
             this.DateTimePicker.Margin = new System.Windows.Forms.Padding(4);
@@ -113,6 +114,7 @@
             // 
             // TextBoxLogin
             // 
+            this.TextBoxLogin.Enabled = false;
             this.TextBoxLogin.Location = new System.Drawing.Point(170, 160);
             this.TextBoxLogin.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxLogin.MaxLength = 50;
@@ -122,6 +124,7 @@
             // 
             // TextBoxSurname
             // 
+            this.TextBoxSurname.Enabled = false;
             this.TextBoxSurname.Location = new System.Drawing.Point(170, 80);
             this.TextBoxSurname.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxSurname.MaxLength = 50;
@@ -132,6 +135,7 @@
             // TextBoxName
             // 
             this.TextBoxName.BackColor = System.Drawing.SystemColors.Window;
+            this.TextBoxName.Enabled = false;
             this.TextBoxName.Location = new System.Drawing.Point(170, 42);
             this.TextBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxName.MaxLength = 30;
@@ -191,6 +195,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(170, 201);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.MaxLength = 50;
