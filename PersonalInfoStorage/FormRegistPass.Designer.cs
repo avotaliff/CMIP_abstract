@@ -150,7 +150,7 @@
             this.TrackBar.Name = "TrackBar";
             this.TrackBar.Size = new System.Drawing.Size(365, 45);
             this.TrackBar.TabIndex = 6;
-            this.TrackBar.Value = 8;
+            this.TrackBar.Value = 30;
             this.TrackBar.Scroll += new System.EventHandler(this.TrackBar_Scroll);
             // 
             // label2
@@ -213,7 +213,6 @@
             this.TextBoxPass.Name = "TextBoxPass";
             this.TextBoxPass.Size = new System.Drawing.Size(195, 22);
             this.TextBoxPass.TabIndex = 15;
-            this.TextBoxPass.Text = "123456789";
             this.TextBoxPass.UseSystemPasswordChar = true;
             // 
             // TextBoxPassPruf
@@ -224,7 +223,6 @@
             this.TextBoxPassPruf.Name = "TextBoxPassPruf";
             this.TextBoxPassPruf.Size = new System.Drawing.Size(195, 22);
             this.TextBoxPassPruf.TabIndex = 16;
-            this.TextBoxPassPruf.Text = "123456789";
             this.TextBoxPassPruf.UseSystemPasswordChar = true;
             // 
             // LabelLow
@@ -329,7 +327,7 @@
             this.LabelSpecSym.TabIndex = 25;
             this.LabelSpecSym.Text = "✓ Содержать спец символы";
             // 
-            // FormPassword
+            // FormRegistPass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -358,7 +356,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormPassword";
+            this.Name = "FormRegistPass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пароль";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPassword_FormClosing);

@@ -150,7 +150,6 @@
             this.TextBoxName.Name = "TextBoxName";
             this.TextBoxName.Size = new System.Drawing.Size(192, 22);
             this.TextBoxName.TabIndex = 6;
-            this.TextBoxName.Text = "rite";
             // 
             // TextBoxSurname
             // 
@@ -160,7 +159,6 @@
             this.TextBoxSurname.Name = "TextBoxSurname";
             this.TextBoxSurname.Size = new System.Drawing.Size(192, 22);
             this.TextBoxSurname.TabIndex = 7;
-            this.TextBoxSurname.Text = "pobrito";
             // 
             // TextBoxLogin
             // 
@@ -170,7 +168,6 @@
             this.TextBoxLogin.Name = "TextBoxLogin";
             this.TextBoxLogin.Size = new System.Drawing.Size(192, 22);
             this.TextBoxLogin.TabIndex = 9;
-            this.TextBoxLogin.Text = "loh";
             // 
             // ButtonNext
             // 
@@ -219,7 +216,7 @@
             this.ButtonPrev.UseVisualStyleBackColor = true;
             this.ButtonPrev.Click += new System.EventHandler(this.ButtonPrev_Click);
             // 
-            // FormLogin
+            // FormRegistInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -239,7 +236,7 @@
             this.Controls.Add(this.MenuStrip);
             this.MainMenuStrip = this.MenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormLogin";
+            this.Name = "FormRegistInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Персональные данные";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);

@@ -43,7 +43,7 @@ namespace PersonalInfoStorage
         private void ChangeLabelsEnabled(bool len, bool upp, bool low, bool num, bool sym)
         {
             Color lightText = SystemColors.ControlDark;
-            Color darkText = SystemColors.ControlDark;
+            Color darkText = SystemColors.ControlText;
             LabelUpper.ForeColor = upp ? darkText : lightText;
             LabelLower.ForeColor = low ? darkText : lightText;
             LabelSpecSym.ForeColor = sym ? darkText : lightText;
