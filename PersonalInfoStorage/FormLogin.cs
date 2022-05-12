@@ -50,7 +50,8 @@ namespace PersonalInfoStorage
                         AesExample aesE = new AesExample(password, login);
                         fpi._info = aesE.CreateDecrypText();
                         fpi._fs = this;
-                        this.Hide();
+                        Hide();
+                        TextBoxPassword.Text = "";
                         fpi.Show();
                     }
                     else

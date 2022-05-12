@@ -46,10 +46,10 @@ namespace PersonalInfoStorage
 
         private string GetUserInfo()
         {
-            return "Имя: " + TextBoxName.Text + "\n"
-                + "Фамилия: " + TextBoxSurname.Text + "\n"
-                + "Дата рождения: " + DateTimePicker.Text + "\n"
-                + "Логин: " + TextBoxLogin.Text + "\n";
+            return TextBoxName.Text + "\n"
+                + TextBoxSurname.Text + "\n"
+                + DateTimePicker.Text + "\n"
+                + TextBoxLogin.Text + "\n";
         }
 
         private void ButtonNext_Click(object sender, EventArgs e)

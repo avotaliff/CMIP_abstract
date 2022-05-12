@@ -54,9 +54,7 @@ namespace PersonalInfoStorage
             if (pa.CorrectPass(TextBoxPass.Text, TextBoxPassPruf.Text, TrackBar.Value, TrackBarHor.Value))
             {
                 var rSA = new RSACryptoServiceProvider();
-                string xmlKey = "----BEGIN----" + "\n"
-                              + rSA.ToXmlString(true) + "\n"
-                              + "----END----";
+                string xmlKey = rSA.ToXmlString(true);
                 string textToEncrypt = _userInfo + xmlKey;
                 string password = TextBoxPass.Text;
                 AesExample aesE = new AesExample(password, _userLogin);
@@ -67,6 +65,7 @@ namespace PersonalInfoStorage
                      "Сообщение",
                      MessageBoxButtons.OK,
                      MessageBoxIcon.Information);
+                Close();
             }    
         }
 

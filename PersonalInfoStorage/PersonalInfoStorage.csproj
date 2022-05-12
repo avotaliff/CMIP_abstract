@@ -109,6 +109,7 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoParser.cs" />
     <Compile Include="KeyMD5.cs" />
     <Compile Include="KeyManager.cs" />
     <Compile Include="PasswordAnalysis.cs" />

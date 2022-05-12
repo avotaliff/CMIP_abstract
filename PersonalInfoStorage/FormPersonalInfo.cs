@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PersonalInfoStorage
@@ -14,6 +7,7 @@ namespace PersonalInfoStorage
     {
         public FormLogin _fs;
         public string _info;
+        private string[] _infoWords;
 
         public FormPersonalInfo()
         {
@@ -38,12 +32,21 @@ namespace PersonalInfoStorage
 
         private void ButtonPrev_Click(object sender, EventArgs e)
         {
-            this.Close();    
+            Close();    
         }
 
         private void FormPersonalInfo_Load(object sender, EventArgs e)
         {
-            
+            _infoWords = InfoParser.Parse(_info);
+            TextBoxName.Text = _infoWords[0];
+            TextBoxSurname.Text = _infoWords[1];
+
+            DateTime dateTime;
+            DateTime.TryParse(_infoWords[2], out dateTime);
+            DateTimePicker.Value = dateTime;
+
+            TextBoxLogin.Text = _infoWords[3];
+            TextBoxPrivateKey.Text = _infoWords[4];
         }
     }
 }

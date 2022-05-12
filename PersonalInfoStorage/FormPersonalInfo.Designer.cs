@@ -43,7 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBoxPrivateKey = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +91,7 @@
             // 
             // ButtonPrev
             // 
-            this.ButtonPrev.Location = new System.Drawing.Point(153, 280);
+            this.ButtonPrev.Location = new System.Drawing.Point(154, 344);
             this.ButtonPrev.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonPrev.Name = "ButtonPrev";
             this.ButtonPrev.Size = new System.Drawing.Size(100, 28);
@@ -193,23 +194,24 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Закрытый ключ:";
             // 
-            // textBox1
+            // TextBoxPrivateKey
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(170, 201);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.MaxLength = 50;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 71);
-            this.textBox1.TabIndex = 27;
+            this.TextBoxPrivateKey.Enabled = false;
+            this.TextBoxPrivateKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextBoxPrivateKey.Location = new System.Drawing.Point(36, 227);
+            this.TextBoxPrivateKey.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxPrivateKey.MaxLength = 1000;
+            this.TextBoxPrivateKey.Multiline = true;
+            this.TextBoxPrivateKey.Name = "TextBoxPrivateKey";
+            this.TextBoxPrivateKey.Size = new System.Drawing.Size(326, 103);
+            this.TextBoxPrivateKey.TabIndex = 27;
             // 
             // FormPersonalInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 318);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(404, 385);
+            this.Controls.Add(this.TextBoxPrivateKey);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ButtonPrev);
             this.Controls.Add(this.DateTimePicker);
@@ -223,6 +225,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPersonalInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Личный кабинет";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPersonalInfo_FormClosing);
             this.Load += new System.EventHandler(this.FormPersonalInfo_Load);
@@ -250,6 +253,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBoxPrivateKey;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
