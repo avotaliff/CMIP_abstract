@@ -1,101 +1,69 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Drawing;
+using System.Collections.Generic;
 
 namespace PersonalInfoStorage
 {
     public partial class FormLogin : Form
     {
-        private DateTime _dt = DateTime.Now.AddYears(-18);
-        private List<TextBox> _textBoxList = new List<TextBox>();
-
-        public List<string> _usersList = new List<string>();
         public FormMain _fm;
+        private List<string> _usersList = new List<string>();
 
         public FormLogin()
         {
             InitializeComponent();
-            DateTimePicker.MaxDate = _dt;
-            _textBoxList.Add(TextBoxName);
-            _textBoxList.Add(TextBoxSurname);
-            _textBoxList.Add(TextBoxLogin);
             _usersList = UsersAccounts.CreateUserList();
         }
 
         private void ButtonPrev_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ErrorMessage()
         {
-            Close();
-        }
-
-        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _fm.Show();
-        }
-
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutBox aboutBox = new AboutBox(); 
-            aboutBox.ShowDialog();
-        }
-
-        private string GetUserInfo()
-        {
-            return "Имя: " + TextBoxName.Text + "\n"
-                + "Фамилия: " + TextBoxSurname.Text + "\n"
-                + "Дата рождения: " + DateTimePicker.Text + "\n"
-                + "Логин: " + TextBoxLogin.Text + "\n";
-        }
-
-        private void ButtonNext_Click(object sender, EventArgs e)
-        {
-            bool f = false;
-            int i = 0;
-            while (f == false && i < _textBoxList.Count) //Есть ли хотя бы один пустой
-            {
-                if (_textBoxList[i].Text == "")
-                { 
-                    f = true;
-                    _textBoxList[i].BackColor = Color.MistyRose;
-                    LabelError.Visible = true;
-                }
-                i++;
-            }
-            if (f == true)
-            {
-                for (; i < _textBoxList.Count; i++)
-                    if (_textBoxList[i].Text == "")
-                        _textBoxList[i].BackColor = Color.MistyRose;
-            }
-            else
-            {
-                if (_usersList.Contains(TextBoxLogin.Text))
-                {
-                    MessageBox.Show(
-                    "Пользователь с данным логином уже существует!",
+            MessageBox.Show(
+                    "Неверный логин или пароль!",
                     "Ошибка",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                     );
+        }
+
+        private void ButtonNext_Click(object sender, EventArgs e)
+        {
+            string password = TextBoxPassword.Text;
+            string login = TextBoxLogin.Text;
+            if (login == "" || password == "")
+            {
+                LabelError.Visible = true;
+            }
+            else
+            {
+                LabelError.Visible = false;
+                if (_usersList.Contains(login))
+                {
+                    KeyManager km = new KeyManager(login + ".txt");
+                    if (km.CheckKey(password))
+                    {
+                        FormPersonalInfo fpi = new FormPersonalInfo();
+                        AesExample aesE = new AesExample(password, login);
+                        fpi._info = aesE.CreateDecrypText();
+                        fpi._fs = this;
+                        this.Hide();
+                        fpi.Show();
+                    }
+                    else
+                        ErrorMessage();
                 }
                 else
-                {
-                    LabelError.Visible = false;
-                    foreach (TextBox tb in _textBoxList)
-                        tb.BackColor = SystemColors.Window;
-                    this.Hide();
-                    FormPassword fp = new FormPassword();
-                    fp._userLogin = TextBoxLogin.Text;
-                    fp._userInfo = GetUserInfo();
-                    fp._fl = this;
-                    fp.Show();
-                }
+                    ErrorMessage();
             }
+        }
+
+        private void FormSignin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _fm.Show();
         }
     }
 }

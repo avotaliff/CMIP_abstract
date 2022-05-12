@@ -12,7 +12,8 @@ namespace PersonalInfoStorage
 {
     public partial class FormPersonalInfo : Form
     {
-        public FormSignin _fs;
+        public FormLogin _fs;
+        public string _info;
 
         public FormPersonalInfo()
         {
@@ -38,6 +39,11 @@ namespace PersonalInfoStorage
         private void ButtonPrev_Click(object sender, EventArgs e)
         {
             this.Close();    
+        }
+
+        private void FormPersonalInfo_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

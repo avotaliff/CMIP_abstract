@@ -7,14 +7,14 @@ using System.Security.Cryptography;
 
 namespace PersonalInfoStorage
 {
-    public partial class FormPassword : Form
+    public partial class FormRegistPass : Form
     {
-        public FormLogin _fl;
+        public FormRegistInfo _fri;
         public string _userInfo;
         public string _userLogin;
         PasswordAnalysis pa = new PasswordAnalysis();
 
-        public FormPassword()
+        public FormRegistPass()
         {
             InitializeComponent();
         }
@@ -31,7 +31,7 @@ namespace PersonalInfoStorage
 
         private void FormPassword_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _fl.Show();
+            _fri.Show();
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,23 +42,26 @@ namespace PersonalInfoStorage
 
         private void ChangeLabelsEnabled(bool len, bool upp, bool low, bool num, bool sym)
         {
-            LabelUpper.ForeColor = upp ? SystemColors.ControlText : SystemColors.ControlDark;
-            LabelLower.ForeColor = low ? SystemColors.ControlText : SystemColors.ControlDark;           
-            LabelSpecSym.ForeColor = sym ? SystemColors.ControlText : SystemColors.ControlDark;
+            Color lightText = SystemColors.ControlDark;
+            Color darkText = SystemColors.ControlDark;
+            LabelUpper.ForeColor = upp ? darkText : lightText;
+            LabelLower.ForeColor = low ? darkText : lightText;
+            LabelSpecSym.ForeColor = sym ? darkText : lightText;
         }
 
         private void ButtonGeneric_Click(object sender, EventArgs e)
         {
             if (pa.CorrectPass(TextBoxPass.Text, TextBoxPassPruf.Text, TrackBar.Value, TrackBarHor.Value))
             {
-                RSACryptoServiceProvider rSA = new RSACryptoServiceProvider();
+                var rSA = new RSACryptoServiceProvider();
                 string xmlKey = "----BEGIN----" + "\n"
                               + rSA.ToXmlString(true) + "\n"
                               + "----END----";
                 string textToEncrypt = _userInfo + xmlKey;
-                AesExample aesE = new AesExample(TextBoxPass.Text, _userLogin);
+                string password = TextBoxPass.Text;
+                AesExample aesE = new AesExample(password, _userLogin);
                 aesE.CreateEncrypFile(textToEncrypt);
-                _fl._usersList.Add(_userLogin);
+                _fri._usersList.Add(_userLogin);
                 MessageBox.Show(
                      "Закрытый ключ и персональные данные его владельца зашифрованы!",
                      "Сообщение",

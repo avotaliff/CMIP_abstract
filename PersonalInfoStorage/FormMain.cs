@@ -19,18 +19,18 @@ namespace PersonalInfoStorage
 
         private void ButtonSignIn_Click(object sender, EventArgs e)
         {
-            FormLogin fl = new FormLogin();
-            fl._fm = this;
-            this.Hide();
-            fl.Show();
+            FormRegistInfo fri = new FormRegistInfo();
+            fri._fm = this;
+            Hide();
+            fri.Show();
         }
 
         private void ButtonLogIn_Click(object sender, EventArgs e)
         {
-            FormSignin fs = new FormSignin();
-            fs._fm = this;
-            this.Hide();
-            fs.Show();
+            FormLogin fl = new FormLogin();
+            fl._fm = this;
+            Hide();
+            fl.Show();
         }
     }
 }

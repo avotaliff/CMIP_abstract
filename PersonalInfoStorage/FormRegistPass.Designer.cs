@@ -1,6 +1,6 @@
 ﻿namespace PersonalInfoStorage
 {
-    partial class FormPassword
+    partial class FormRegistPass
     {
         /// <summary>
         /// Required designer variable.
